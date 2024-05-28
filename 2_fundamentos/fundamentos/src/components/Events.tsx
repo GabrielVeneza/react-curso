@@ -1,9 +1,18 @@
 const Events = () => {
 
-    const handleMyEvent = (e) => {
+    const handleMyEvent = (e: any) => {
 
         console.log(e)
         console.log("Ativo")
+    }
+
+    const renderSomething = (x: any) => {
+        
+        if(x){
+            return <h3>Renderizando Isso!</h3>
+            } else {
+                return <h3>tbm poso renderizar isso!</h3>
+            }
     }
 
     return(
@@ -21,6 +30,8 @@ const Events = () => {
                     }
                 }}>Clique Aqui, por favor!</button>
             </div>
+            {renderSomething(true)}
+            {renderSomething(false)}
         </div>
     )
 }
