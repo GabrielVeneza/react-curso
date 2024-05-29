@@ -8,14 +8,20 @@
 <h1>Seção 3</h1>
 <h2>Importação de imagem</h2>
 <li>Public</li>
-´´´jsx
-    <h3>Imagem em Public</h3>
+
+```jsx
     <img src="/img1.jpg" alt="programação" width={"30%"}/>
-´´´
+```
 
 <li>Assets</li>
-´´´jsx
-    <h3>Imagem em Assets</h3>
-    <img src={City} alt="Cidade" width={"30%"} />
-´´´
 
+```jsx
+    <img src={City} alt="Cidade" width={"30%"} />
+```
+
+<h1>Condicional</h1>
+<h2>Ternário: condição ? bloco1 : bloco2</h2>
+
+```jsx
+    {name === "João" ? () : ()}
+```
