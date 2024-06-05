@@ -1,0 +1,14 @@
+form {
+    width: 500px;
+    margin: 0;
+    text-align: left;
+    background-color: #101010;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+input, textarea, select, span {
+    display: block;
+    margin-top: 10px;
+}
