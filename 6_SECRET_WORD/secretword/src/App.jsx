@@ -70,27 +70,32 @@ function App() {
   // process the latter input
   const verifyLetter = (letter) => {
     const normalizedLetter = letter.toLowerCase()
-
+    
+    
     // check if letter has already benn utilized
-    if (
-      guessedLetters.includes(normalizedLetter) ||
-      wrongLetters.includes(normalizedLetter)
-    ){
-      return
-    }
+    if (guessedLetters.includes(normalizedLetter) || wrongLetters.includes(normalizedLetter))
+      {
+        return
+      }
 
     // push guesses letter or remove a guess
-    if (letter.includes(normalizedLetter)){
-      setGuessedLetters((actualGuessedLeters) =>[
-        ...actualGuessedLeters,
-        normalizedLetter
-      ])
-    }else{
+    if (letters.includes(normalizedLetter))
+      {
+        console.log("certa")
+        setGuessedLetters((actualGuessedLeters) =>[
+          ...actualGuessedLeters,
+          normalizedLetter,
+        ])
+      }
+    else{
+      console.log("errada")
       setWrongLetters((actualWrongGuessedLeters) =>[
         ...actualWrongGuessedLeters,
-        normalizedLetter
+        normalizedLetter,
       ])
-      setGuesses((actualGuesses) => actualGuesses - 1)
+      setGuesses((guesses) => 
+        guesses - 1
+      )
     }    
   }
 
