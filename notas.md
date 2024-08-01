@@ -25,3 +25,8 @@
 ```jsx
     {name === "João" ? () : ()}
 ```
+
+
+<h2>Seção 7</h2>
+<h2>JSON Server</h2>
+<li>Ele simula uma API, e isso nos possibilita fazer requisições HTTP</li>
