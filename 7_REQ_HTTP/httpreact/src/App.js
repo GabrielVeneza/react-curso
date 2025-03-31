@@ -2,27 +2,35 @@ import './App.css';
 
 import {useState, useEffect} from 'react'
 
+// 4 - import custom hooks
+import {useFetch} from './hooks/useFatch'
+
 const url = 'http://localhost:3000/products'
 
 function App() {
   const [products, setProducts] = useState([])
 
+  // 4 - custom hook
+  const {data} = useFetch(url)
+
+  console.log(data)
+
   const [name, setName] = useState("")
   const [price, setPrice] = useState("")  
   
   // 1 - resgatando dados
-  useEffect( () => {
+  // useEffect( () => {
 
-    async function fetchDate() {
-      const res = await fetch(url)
+  //   async function fetchDate() {
+  //     const res = await fetch(url)
 
-      const data = await res.json()
+  //     const data = await res.json()
       
-      setProducts(data)
-    }
+  //     setProducts(data)
+  //   }
 
-    fetchDate()
-  }, [])
+  //   fetchDate()
+  // }, [])
 
 
   // 2 - adição produtos
