@@ -1,21 +1,21 @@
-import './App.css';
+import "./App.css";
 
-import {useState, useEffect} from 'react'
+import { useState, useEffect } from "react";
 
 // 4 - import custom hooks
-import {useFetch} from './hooks/useFatch'
+import { useFetch } from "./hooks/useFatch";
 
-const url = 'http://localhost:3000/products'
+const url = "http://localhost:3000/products";
 
 function App() {
-  const [products, setProducts] = useState([])
+  const [products, setProducts] = useState([]);
 
   // 4 - custom hook
-  const {data: items, httpConfig} = useFetch(url)
+  const { data: items, httpConfig } = useFetch(url);
 
-  const [name, setName] = useState("")
-  const [price, setPrice] = useState("")  
-  
+  const [name, setName] = useState("");
+  const [price, setPrice] = useState("");
+
   // 1 - resgatando dados
   // useEffect( () => {
 
@@ -23,23 +23,22 @@ function App() {
   //     const res = await fetch(url)
 
   //     const data = await res.json()
-      
+
   //     setProducts(data)
   //   }
 
   //   fetchDate()
   // }, [])
 
-
   // 2 - adição produtos
   const handlesubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
     const product = {
       name,
-      price
-    }
-    
+      price,
+    };
+
     // const res = await fetch(url, {
     //   method: "POST",
     //   headers: {
@@ -47,7 +46,7 @@ function App() {
     //   },
     //   body: JSON.stringify(product),
     // })
-    
+
     // // 3 - carregamento dinamico
 
     // const addedProduct = await res.json()
@@ -56,37 +55,46 @@ function App() {
 
     // 5 - refaturando o POST
 
-    httpConfig(product, "POST")
+    httpConfig(product, "POST");
 
-  
-    setName('')
-    setPrice('')
-  }
-
+    setName("");
+    setPrice("");
+  };
 
   return (
     <div className="App">
-     <h1>Lista de Produtos</h1>
-     <ul>
-        {items && items.map((product) =>
-        <li key={product.id}>
-          {product.name} - R$ {product.price}
-        </li>
-      )}
-     </ul>
-     <div className='add-product'>
+      <h1>Lista de Produtos</h1>
+      <ul>
+        {items &&
+          items.map((product) => (
+            <li key={product.id}>
+              {product.name} - R$ {product.price}
+            </li>
+          ))}
+      </ul>
+      <div className="add-product">
         <form onSubmit={handlesubmit}>
           <label>
             Nome:
-            <input type='text' value={name} name='name' onChange={(e) => setName(e.target.value)} />
+            <input
+              type="text"
+              value={name}
+              name="name"
+              onChange={(e) => setName(e.target.value)}
+            />
           </label>
           <label>
             Preço:
-            <input type='number' value={price} name='price' onChange={(e) => setPrice(e.target.value)} />
+            <input
+              type="number"
+              value={price}
+              name="price"
+              onChange={(e) => setPrice(e.target.value)}
+            />
           </label>
-          <input type='submit' value='Criar' />
+          <input type="submit" value="Criar" />
         </form>
-     </div>
+      </div>
     </div>
   );
 }
